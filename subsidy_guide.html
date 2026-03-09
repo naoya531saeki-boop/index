@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小規模事業者持続化補助金 完全ガイド 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f2044;
+    --blue: #1a56db;
+    --lightblue: #3b82f6;
+    --gold: #f59e0b;
+    --gold2: #fbbf24;
+    --green: #059669;
+    --red: #dc2626;
+    --bg: #f0f4fb;
+    --white: #ffffff;
+    --text: #1e293b;
+    --gray: #64748b;
+    --lightgray: #e2e8f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3a6e 60%, #1a56db 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(245,158,11,0.08);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(24px, 5vw, 42px);
+    font-weight: 900;
+    color: white;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .hero h1 span { color: var(--gold2); }
+  .hero p {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+    margin-bottom: 36px;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 16px 24px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    min-width: 130px;
+  }
+  .hero-stat .num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold2);
+    display: block;
+  }
+  .hero-stat .label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 2px;
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 56px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--navy);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+  .section-label .dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .section-title {
+    font-size: clamp(20px, 4vw, 30px);
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .section-title span { color: var(--blue); }
+  .section-sub {
+    color: var(--gray);
+    font-size: 14px;
+    margin-bottom: 36px;
+  }
+
+  /* WHAT IS IT */
+  .what-card {
+    background: white;
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: 0 4px 24px rgba(15,32,68,0.08);
+    border-left: 6px solid var(--blue);
+    position: relative;
+    overflow: hidden;
+  }
+  .what-card::after {
+    content: '補助金';
+    position: absolute;
+    top: -10px; right: 20px;
+    font-size: 80px;
+    font-weight: 900;
+    color: rgba(26,86,219,0.04);
+    line-height: 1;
+  }
+  .what-card p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--text);
+  }
+  .what-card strong { color: var(--blue); }
+  .what-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .what-point {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .what-point .icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .what-point p { font-size: 14px; font-weight: 500; }
+
+  /* 対象者 */
+  .target-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .target-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(15,32,68,0.07);
+    border-top: 4px solid var(--blue);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .target-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(15,32,68,0.12);
+  }
+  .target-card .icon { font-size: 32px; margin-bottom: 10px; }
+  .target-card h3 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .target-card .limit {
+    display: inline-block;
+    background: var(--bg);
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 6px;
+  }
+
+  /* 補助額図解 */
+  .subsidy-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid var(--lightgray);
+    background: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--gray);
+    transition: all 0.2s;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .tab-btn.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: white;
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .subsidy-visual {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 4px 24px rgba(15,32,68,0.08);
+  }
+  .subsidy-bar-wrap { margin-bottom: 28px; }
+  .subsidy-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--gray);
+    margin-bottom: 8px;
+  }
+  .subsidy-bar-label strong { color: var(--navy); font-size: 15px; }
+  .bar-track {
+    height: 44px;
+    background: var(--lightgray);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding-left: 14px;
+    font-weight: 700;
+    font-size: 13px;
+    color: white;
+    transition: width 1s cubic-bezier(0.4,0,0.2,1);
+  }
+  .bar-blue { background: linear-gradient(90deg, var(--blue), var(--lightblue)); }
+  .bar-gold { background: linear-gradient(90deg, #d97706, var(--gold2)); }
+  .bar-green { background: linear-gradient(90deg, #047857, var(--green)); }
+
+  .special-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .special-card {
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+  .special-card.blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .special-card.gold { background: #fffbeb; border: 1px solid #fde68a; }
+  .special-card.green { background: #ecfdf5; border: 1px solid #a7f3d0; }
+  .special-card .sc-label { font-size: 11px; font-weight: 700; color: var(--gray); margin-bottom: 4px; }
+  .special-card .sc-val { font-size: 20px; font-weight: 900; }
+  .special-card.blue .sc-val { color: var(--blue); }
+  .special-card.gold .sc-val { color: #b45309; }
+  .special-card.green .sc-val { color: var(--green); }
+  .special-card .sc-note { font-size: 11px; color: var(--gray); margin-top: 4px; }
+
+  .max-badge {
+    background: linear-gradient(135deg, var(--gold), var(--gold2));
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(245,158,11,0.3);
+  }
+  .max-badge span {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    margin-left: 8px;
+  }
+
+  /* スケジュール */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--blue), var(--lightblue));
+    border-radius: 3px;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 24px;
+    background: white;
+    border-radius: 14px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 12px rgba(15,32,68,0.06);
+    transition: transform 0.2s;
+  }
+  .tl-item:hover { transform: translateX(4px); }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -28px; top: 22px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--blue);
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--blue);
+  }
+  .tl-item.highlight::before { background: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+  .tl-item.highlight { border-left: 3px solid var(--gold); }
+  .tl-date {
+    font-size: 12px;
+    color: var(--gray);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .tl-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .tl-note {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+  .tl-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* 対象経費 */
+  .expense-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+  }
+  .expense-card {
+    background: white;
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(15,32,68,0.06);
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .expense-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(15,32,68,0.1);
+  }
+  .expense-card.highlight {
+    border: 2px solid var(--gold);
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  }
+  .expense-card .icon { font-size: 28px; margin-bottom: 8px; }
+  .expense-card h3 { font-size: 13px; font-weight: 700; color: var(--navy); }
+  .expense-card p { font-size: 11px; color: var(--gray); margin-top: 4px; }
+  .expense-card .hot {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 6px;
+    margin-top: 6px;
+  }
+
+  /* SNS×補助金 */
+  .sns-match {
+    background: linear-gradient(135deg, var(--navy), #1a3a6e);
+    border-radius: 20px;
+    padding: 36px;
+    color: white;
+  }
+  .sns-match h3 {
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 6px;
+    color: var(--gold2);
+  }
+  .sns-match p { font-size: 14px; color: rgba(255,255,255,0.8); margin-bottom: 24px; }
+  .sns-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .sns-item {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .sns-item .icon { font-size: 22px; flex-shrink: 0; }
+  .sns-item p { font-size: 13px; font-weight: 500; }
+
+  .warning-box {
+    background: #fff1f2;
+    border: 2px solid #fecdd3;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-top: 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .warning-box .icon { font-size: 24px; flex-shrink: 0; }
+  .warning-box h4 { font-size: 14px; font-weight: 700; color: var(--red); margin-bottom: 4px; }
+  .warning-box p { font-size: 13px; color: #7f1d1d; }
+
+  /* 申請フロー */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .flow-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    position: relative;
+  }
+  .flow-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 22px; top: 52px;
+    width: 2px; height: calc(100% - 12px);
+    background: var(--lightgray);
+  }
+  .flow-num {
+    width: 44px; height: 44px;
+    background: var(--navy);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    flex-shrink: 0;
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(15,32,68,0.2);
+  }
+  .flow-body {
+    background: white;
+    border-radius: 14px;
+    padding: 18px 20px;
+    flex: 1;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(15,32,68,0.06);
+  }
+  .flow-body h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .flow-body p { font-size: 13px; color: var(--gray); }
+  .flow-body .tag {
+    display: inline-block;
+    background: var(--bg);
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-top: 6px;
+  }
+
+  /* まとめ3点 */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .summary-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px 20px;
+    box-shadow: 0 4px 20px rgba(15,32,68,0.08);
+    border-top: 4px solid var(--blue);
+    position: relative;
+    overflow: hidden;
+  }
+  .summary-card::before {
+    content: attr(data-num);
+    position: absolute;
+    top: -10px; right: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: rgba(26,86,219,0.06);
+    line-height: 1;
+  }
+  .summary-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .summary-card p { font-size: 13px; color: var(--gray); line-height: 1.7; }
+
+  /* CTA */
+  .cta {
+    background: linear-gradient(135deg, var(--navy), #1a3a6e);
+    border-radius: 20px;
+    padding: 40px 32px;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .cta h2 { font-size: 22px; font-weight: 900; color: white; margin-bottom: 8px; }
+  .cta p { font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(245,158,11,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(245,158,11,0.5);
+  }
+
+  /* footer */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+  }
+
+  /* divider */
+  .divider {
+    height: 1px;
+    background: var(--lightgray);
+    margin: 0;
+  }
+
+  /* ── 診断フォーム ── */
+  .diag-wrap {
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 8px 40px rgba(15,32,68,0.12);
+    overflow: hidden;
+  }
+  .diag-progress-wrap {
+    background: var(--navy);
+    padding: 20px 28px 16px;
+  }
+  .diag-progress-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .diag-track {
+    height: 8px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .diag-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold2));
+    border-radius: 10px;
+    transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+  .diag-card { padding: 36px 32px; min-height: 320px; }
+  .diag-q { display: none; animation: fadeUp 0.4s ease; }
+  .diag-q.active { display: block; }
+  .diag-q-num {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--gold2);
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+  .diag-q-text {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 24px;
+    line-height: 1.4;
+  }
+  .diag-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .diag-choices.multi {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .diag-choice {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.15s;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .diag-choice:hover {
+    border-color: var(--blue);
+    background: #eff6ff;
+    transform: translateX(4px);
+  }
+  .multi-choice {
+    flex: 1 1 180px;
+    text-align: center;
+  }
+  .multi-choice:hover { transform: translateY(-2px); }
+  .diag-choice.selected {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: white;
+    transform: none;
+  }
+  .multi-choice.selected {
+    background: var(--navy);
+    border-color: var(--gold);
+    color: white;
+    transform: translateY(-2px);
+  }
+  .diag-next-btn {
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--blue), #2563eb);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Noto Sans JP', sans-serif;
+    box-shadow: 0 4px 16px rgba(26,86,219,0.3);
+    transition: all 0.2s;
+    display: block;
+    width: 100%;
+  }
+  .diag-next-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26,86,219,0.4);
+  }
+
+  /* 結果 */
+  .diag-result {
+    padding: 0 32px 36px;
+    animation: fadeUp 0.5s ease;
+  }
+  .result-header {
+    text-align: center;
+    padding: 32px 0 24px;
+  }
+  .result-icon { font-size: 48px; margin-bottom: 10px; }
+  .result-header h2 {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .result-header p { font-size: 14px; color: var(--gray); }
+  .result-amount-wrap {
+    background: linear-gradient(135deg, var(--navy), #1a3a6e);
+    border-radius: 20px;
+    padding: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .result-amount-label { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 8px; }
+  .result-amount {
+    font-family: 'Oswald', sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--gold2);
+    line-height: 1;
+  }
+  .result-rate {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 8px;
+    font-weight: 600;
+  }
+  .result-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .rb-item {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .rb-item .rb-label { font-size: 11px; color: var(--gray); margin-bottom: 4px; font-weight: 600; }
+  .rb-item .rb-val { font-size: 16px; font-weight: 900; color: var(--navy); }
+  .rb-item.ok .rb-val { color: var(--green); }
+  .rb-item.warn .rb-val { color: var(--red); }
+
+  .result-services {
+    background: #fffbeb;
+    border: 2px solid #fde68a;
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .result-services h4 { font-size: 14px; font-weight: 700; color: #92400e; margin-bottom: 10px; }
+  .result-services ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .result-services li { font-size: 13px; color: #78350f; display: flex; align-items: center; gap: 8px; }
+  .result-services li::before { content: '✅'; }
+
+  .result-note {
+    background: #fff1f2;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: #9f1239;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .result-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .result-retry {
+    flex: 1;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    padding: 13px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray);
+    cursor: pointer;
+    font-family: 'Noto Sans JP', sans-serif;
+    transition: all 0.2s;
+  }
+  .result-retry:hover { border-color: var(--navy); color: var(--navy); }
+  .result-cta {
+    flex: 2;
+    background: linear-gradient(135deg, var(--gold), var(--gold2));
+    color: var(--navy);
+    border-radius: 50px;
+    padding: 13px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(245,158,11,0.3);
+    transition: all 0.2s;
+  }
+  .result-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.4); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-stat { animation: fadeUp 0.6s ease both; }
+  .hero-stat:nth-child(1) { animation-delay: 0.2s; }
+  .hero-stat:nth-child(2) { animation-delay: 0.35s; }
+  .hero-stat:nth-child(3) { animation-delay: 0.5s; }
+  .hero-stat:nth-child(4) { animation-delay: 0.65s; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-badge">2026年最新版 ｜ 第19回・第3回</div>
+    <h1>小規模事業者<span>持続化補助金</span><br>完全ガイド</h1>
+    <p>販路開拓・SNS運用・動画制作・Web制作の費用を最大250万円まで補助</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="num">2/3</span>
+        <div class="label">補助率（通常）</div>
+      </div>
+      <div class="hero-stat">
+        <span class="num">250万</span>
+        <div class="label">最大補助額</div>
+      </div>
+      <div class="hero-stat">
+        <span class="num">4/30</span>
+        <div class="label">申請締切</div>
+      </div>
+      <div class="hero-stat">
+        <span class="num">7月頃</span>
+        <div class="label">採択発表予定</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- WHAT IS IT -->
+  <div class="section" id="s1">
+    <div class="section-label"><span class="dot"></span>ABOUT</div>
+    <div class="section-title">そもそも<span>何の補助金</span>？</div>
+    <div class="section-sub">経営者が知っておくべき基本をわかりやすく解説します</div>
+    <div class="what-card">
+      <p>小規模事業者が、<strong>自分で作る経営計画に基づいて</strong>販路開拓や業務効率化に取り組むとき、その<strong>費用の一部を国が補助してくれる制度</strong>です。中小企業庁が地域の雇用・産業を支える小規模事業者の生産性向上と持続的発展を目的として設けています。</p>
+      <div class="what-points">
+        <div class="what-point">
+          <div class="icon">📋</div>
+          <p>経営計画を自分で作成することが必要</p>
+        </div>
+        <div class="what-point">
+          <div class="icon">🏪</div>
+          <p>商工会・商工会議所のサポートを受けながら申請</p>
+        </div>
+        <div class="what-point">
+          <div class="icon">💰</div>
+          <p>使った費用の2/3を後から国が補助</p>
+        </div>
+        <div class="what-point">
+          <div class="icon">🚀</div>
+          <p>新規顧客獲得・売り方改革に使いやすい</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 対象者 -->
+  <div class="section" id="s2">
+    <div class="section-label"><span class="dot"></span>対象者</div>
+    <div class="section-title">あなたの事業は<span>対象？</span></div>
+    <div class="section-sub">業種によって従業員数の基準が異なります</div>
+    <div class="target-grid">
+      <div class="target-card">
+        <div class="icon">🛍️</div>
+        <h3>商業・サービス業</h3>
+        <p>宿泊業・娯楽業を除く</p>
+        <div class="limit">従業員 5人以下</div>
+      </div>
+      <div class="target-card">
+        <div class="icon">🏨</div>
+        <h3>宿泊業・娯楽業</h3>
+        <p>ホテル・旅館・遊興施設など</p>
+        <div class="limit">従業員 20人以下</div>
+      </div>
+      <div class="target-card">
+        <div class="icon">🏭</div>
+        <h3>製造業・その他</h3>
+        <p>工場・職人・建設など</p>
+        <div class="limit">従業員 20人以下</div>
+      </div>
+      <div class="target-card">
+        <div class="icon">👤</div>
+        <h3>個人事業主もOK</h3>
+        <p>フリーランス・自営業・一人社長も対象</p>
+        <div class="limit">要件を満たせばOK</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 補助額 -->
+  <div class="section" id="s3">
+    <div class="section-label"><span class="dot"></span>補助額</div>
+    <div class="section-title">いくら<span>もらえる</span>？</div>
+    <div class="section-sub">枠と特例の組み合わせで最大250万円まで拡張されます</div>
+
+    <div class="subsidy-tabs">
+      <button class="tab-btn active" onclick="switchTab('general')">一般型・通常枠</button>
+      <button class="tab-btn" onclick="switchTab('startup')">創業型</button>
+    </div>
+
+    <div class="tab-content active" id="tab-general">
+      <div class="subsidy-visual">
+        <div class="subsidy-bar-wrap">
+          <div class="subsidy-bar-label">
+            <strong>基本枠（補助上限50万円）</strong>
+            <span>補助率 2/3</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-blue" style="width:20%">50万円</div>
+          </div>
+        </div>
+        <div class="subsidy-bar-wrap">
+          <div class="subsidy-bar-label">
+            <strong>＋インボイス特例</strong>
+            <span>+50万円上乗せ</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-gold" style="width:40%">100万円</div>
+          </div>
+        </div>
+        <div class="subsidy-bar-wrap">
+          <div class="subsidy-bar-label">
+            <strong>＋賃金引上げ特例</strong>
+            <span>+150万円上乗せ</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-green" style="width:80%">200万円</div>
+          </div>
+        </div>
+
+        <div class="special-cards">
+          <div class="special-card blue">
+            <div class="sc-label">基本補助上限</div>
+            <div class="sc-val">50万円</div>
+            <div class="sc-note">補助率 2/3</div>
+          </div>
+          <div class="special-card gold">
+            <div class="sc-label">インボイス特例</div>
+            <div class="sc-val">+50万円</div>
+            <div class="sc-note">インボイス発行事業者</div>
+          </div>
+          <div class="special-card green">
+            <div class="sc-label">賃金引上げ特例</div>
+            <div class="sc-val">+150万円</div>
+            <div class="sc-note">赤字事業者は補助率3/4</div>
+          </div>
+        </div>
+
+        <div class="max-badge">
+          🏆 両方の特例が適用されると最大 <span>250万円</span> まで補助！
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-startup">
+      <div class="subsidy-visual">
+        <div class="subsidy-bar-wrap">
+          <div class="subsidy-bar-label">
+            <strong>創業型（補助上限200万円）</strong>
+            <span>補助率 2/3</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-blue" style="width:80%">200万円</div>
+          </div>
+        </div>
+        <div class="what-points" style="margin-top:20px">
+          <div class="what-point">
+            <div class="icon">🌱</div>
+            <p>創業後1年以内（事業開始前も含む）の小規模事業者対象</p>
+          </div>
+          <div class="what-point">
+            <div class="icon">🤝</div>
+            <p>商工会・商工会議所の支援を受けながら販路開拓に取り組む</p>
+          </div>
+        </div>
+        <div class="max-badge">
+          🏆 特例活用で最大 <span>250万円</span> まで補助！
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- スケジュール -->
+  <div class="section" id="s4">
+    <div class="section-label"><span class="dot"></span>スケジュール</div>
+    <div class="section-title">いつまでに<span>申請</span>すればいい？</div>
+    <div class="section-sub">第19回（一般型）・第3回（創業型）共通のスケジュールです</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2026年1月28日</div>
+        <div class="tl-title">📄 公募要領公開・申請受付スタート準備</div>
+        <div class="tl-note">申請要件・対象経費の確認開始</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2026年3月6日</div>
+        <div class="tl-title">🖥️ 申請受付開始</div>
+        <div class="tl-note">電子申請のみ。GビズIDプライムで申請</div>
+      </div>
+      <div class="tl-item highlight">
+        <div class="tl-date">2026年4月16日</div>
+        <div class="tl-title">📋 様式4（事業支援計画書）発行締切 <span class="tl-badge">重要</span></div>
+        <div class="tl-note">商工会・商工会議所への依頼はここまでに完了必須</div>
+      </div>
+      <div class="tl-item highlight">
+        <div class="tl-date">2026年4月30日 17:00</div>
+        <div class="tl-title">⏰ 申請締切 <span class="tl-badge">最終期限</span></div>
+        <div class="tl-note">電子申請のみ。郵送は一切受け付けません</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2026年7月頃</div>
+        <div class="tl-title">🎉 採択発表（予定）</div>
+        <div class="tl-note">採択後、交付決定通知が届いてから事業開始</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">〜2027年6月30日</div>
+        <div class="tl-title">📦 補助事業実施期間</div>
+        <div class="tl-note">交付決定日から2027年6月30日まで</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2027年7月10日</div>
+        <div class="tl-title">📊 実績報告書提出期限</div>
+        <div class="tl-note">領収書等の証拠書類を提出して補助金を受け取る</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 対象経費 -->
+  <div class="section" id="s5">
+    <div class="section-label"><span class="dot"></span>対象経費</div>
+    <div class="section-title">何に<span>使える</span>？</div>
+    <div class="section-sub">⭐マークはSNS運用・動画制作事業者に特に関連する経費です</div>
+    <div class="expense-grid">
+      <div class="expense-card highlight">
+        <div class="icon">📱</div>
+        <h3>ウェブサイト関連費</h3>
+        <p>SNS運用・広告・動画制作・HP構築</p>
+        <div class="hot">⭐ SNS・動画と相性◎</div>
+      </div>
+      <div class="expense-card highlight">
+        <div class="icon">📣</div>
+        <h3>広報費</h3>
+        <p>チラシ・DM・カタログ・広告掲載料</p>
+        <div class="hot">⭐ SNS広告にも対応</div>
+      </div>
+      <div class="expense-card highlight">
+        <div class="icon">🤝</div>
+        <h3>委託・外注費</h3>
+        <p>動画制作・SNS運用の外注費</p>
+        <div class="hot">⭐ 制作会社への外注OK</div>
+      </div>
+      <div class="expense-card">
+        <div class="icon">⚙️</div>
+        <h3>機械装置等費</h3>
+        <p>販路開拓に使う機械・設備・器具</p>
+      </div>
+      <div class="expense-card">
+        <div class="icon">🏛️</div>
+        <h3>展示会等出展費</h3>
+        <p>展示会・商談会への出展費用</p>
+      </div>
+      <div class="expense-card">
+        <div class="icon">✈️</div>
+        <h3>旅費</h3>
+        <p>販路開拓のための交通費・宿泊費</p>
+      </div>
+      <div class="expense-card">
+        <div class="icon">🔬</div>
+        <h3>新商品開発費</h3>
+        <p>試作品・新サービス開発費用</p>
+      </div>
+      <div class="expense-card">
+        <div class="icon">🏢</div>
+        <h3>借料</h3>
+        <p>機器・会場のレンタル費用</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SNS×補助金 -->
+  <div class="section" id="s6">
+    <div class="section-label"><span class="dot"></span>活用例</div>
+    <div class="section-title">SNS運用・動画制作と<span>補助金の相性</span></div>
+    <div class="section-sub">公式資料でも明示されている対象例をまとめました</div>
+    <div class="sns-match">
+      <h3>📋 公式で例示されている「ウェブサイト関連費」の対象例</h3>
+      <p>以下はすべて補助対象になり得る費用として、公式資料に記載されています</p>
+      <div class="sns-items">
+        <div class="sns-item">
+          <div class="icon">📸</div>
+          <p>SNS公式アカウント作成費</p>
+        </div>
+        <div class="sns-item">
+          <div class="icon">🛠️</div>
+          <p>SNSマーケティングツール構築費</p>
+        </div>
+        <div class="sns-item">
+          <div class="icon">💰</div>
+          <p>インターネット・SNS広告の運用代行費</p>
+        </div>
+        <div class="sns-item">
+          <div class="icon">🎬</div>
+          <p>動画共有サービス・HP用の動画編集・制作費</p>
+        </div>
+        <div class="sns-item">
+          <div class="icon">📺</div>
+          <p>デジタルサイネージ用映像制作費</p>
+        </div>
+        <div class="sns-item">
+          <div class="icon">🌐</div>
+          <p>ホームページ制作・リニューアル費</p>
+        </div>
+      </div>
+    </div>
+    <div class="warning-box">
+      <div class="icon">⚠️</div>
+      <div>
+        <h4>重要な注意点：ウェブサイト関連費だけの申請はNG！</h4>
+        <p>ウェブサイト関連費のみで申請した場合は不採択となります。SNSや動画制作を盛り込む場合も、<strong>「全体の販路開拓計画の中に位置づける」</strong>ことが必須です。広報費や展示会出展費など他の経費と組み合わせて計画を作りましょう。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 申請フロー -->
+  <div class="section" id="s7">
+    <div class="section-label"><span class="dot"></span>申請フロー</div>
+    <div class="section-title">申請までの<span>5ステップ</span></div>
+    <div class="section-sub">GビズIDの取得に時間がかかるので早めに動くことが重要です</div>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="flow-num">1</div>
+        <div class="flow-body">
+          <h3>GビズIDプライムを取得する</h3>
+          <p>電子申請に必須のID。取得に1〜2週間かかる場合があります。まず最初に動きましょう。</p>
+          <span class="tag">gBizID公式サイトから申請</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">2</div>
+        <div class="flow-body">
+          <h3>経営計画書・補助事業計画書を作成する</h3>
+          <p>「何のために・何をして・どうなりたいか」を明確に書く。ここが採択の核心です。</p>
+          <span class="tag">様式1〜3</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">3</div>
+        <div class="flow-body">
+          <h3>商工会・商工会議所に相談し、様式4を発行してもらう</h3>
+          <p>4月16日が発行締切。早めに相談に行くことが重要です。支援機関が計画の内容も確認してくれます。</p>
+          <span class="tag">事業支援計画書（様式4） ｜ 4/16締切</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">4</div>
+        <div class="flow-body">
+          <h3>電子申請システムで申請する</h3>
+          <p>GビズIDでログインして申請。郵送は一切受け付けません。4月30日17:00が締切です。</p>
+          <span class="tag">電子申請のみ ｜ 4/30 17:00締切</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">5</div>
+        <div class="flow-body">
+          <h3>採択後・交付決定を受けてから事業を開始する</h3>
+          <p>⚠️ 採択前・交付決定前に発注・支払いを行うと補助対象外になります！必ず交付決定通知を受けてから動きましょう。</p>
+          <span class="tag">採択発表 2026年7月頃予定</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- まとめ -->
+  <div class="section" id="s8">
+    <div class="section-label"><span class="dot"></span>まとめ</div>
+    <div class="section-title">提案先に伝えるべき<span>3つのポイント</span></div>
+    <div class="section-sub">補助金活用を検討している経営者への説明に役立ててください</div>
+    <div class="summary-grid">
+      <div class="summary-card" data-num="01">
+        <h3>SNS運用・動画・広告は<br>補助対象になりやすい</h3>
+        <p>ウェブサイト関連費として、SNS運用・動画制作・広告運用代行・サイト導線整備は補助対象に乗せやすい分野です。</p>
+      </div>
+      <div class="summary-card" data-num="02">
+        <h3>単発制作ではなく「経営計画」<br>の中に位置づけること</h3>
+        <p>ウェブ関連費だけの申請は不採択。SNSや動画を、全体の販路開拓計画の中でどう使うかを示すことが採択のカギです。</p>
+      </div>
+      <div class="summary-card" data-num="03">
+        <h3>GビズIDと商工会への相談は<br>早めに動くこと</h3>
+        <p>GビズID取得に最大2週間、様式4の発行締切は4月16日。今すぐ動き始めることが採択への最短ルートです。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 診断フォーム -->
+  <div class="section" id="s9">
+    <div class="section-label"><span class="dot"></span>かんたん診断</div>
+    <div class="section-title">補助金<span>いくら通る？</span>診断</div>
+    <div class="section-sub">5つの質問に答えるだけで、あなたの申請可能額の目安がわかります</div>
+
+    <div class="diag-wrap">
+      <div class="diag-progress-wrap">
+        <div class="diag-progress-header">
+          <span id="diag-step-label">質問 1 / 5</span>
+          <span id="diag-pct">0%</span>
+        </div>
+        <div class="diag-track">
+          <div class="diag-bar" id="diag-bar" style="width:0%"></div>
+        </div>
+      </div>
+
+      <div class="diag-card" id="diag-card">
+
+        <!-- Q1 -->
+        <div class="diag-q active" id="q1">
+          <div class="diag-q-num">Q1</div>
+          <div class="diag-q-text">あなたの事業の業種を教えてください</div>
+          <div class="diag-choices">
+            <button class="diag-choice" onclick="answer(1,'construction',this)">🏗️ 建設業・工務店</button>
+            <button class="diag-choice" onclick="answer(1,'service',this)">🛍️ 商業・サービス業（5人以下）</button>
+            <button class="diag-choice" onclick="answer(1,'hospitality',this)">🏨 宿泊業・娯楽業（20人以下）</button>
+            <button class="diag-choice" onclick="answer(1,'mfg',this)">🏭 製造業・その他（20人以下）</button>
+            <button class="diag-choice" onclick="answer(1,'sole',this)">👤 個人事業主・フリーランス</button>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="diag-q" id="q2">
+          <div class="diag-q-num">Q2</div>
+          <div class="diag-q-text">従業員数を教えてください（本人含まず）</div>
+          <div class="diag-choices">
+            <button class="diag-choice" onclick="answer(2,'0',this)">👤 0人（一人事業）</button>
+            <button class="diag-choice" onclick="answer(2,'1-5',this)">👥 1〜5人</button>
+            <button class="diag-choice" onclick="answer(2,'6-20',this)">👨‍👩‍👧‍👦 6〜20人</button>
+            <button class="diag-choice" onclick="answer(2,'21+',this)">🏢 21人以上</button>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="diag-q" id="q3">
+          <div class="diag-q-num">Q3</div>
+          <div class="diag-q-text">インボイス（適格請求書）の登録事業者ですか？</div>
+          <div class="diag-choices">
+            <button class="diag-choice" onclick="answer(3,'yes',this)">✅ はい、登録済み</button>
+            <button class="diag-choice" onclick="answer(3,'plan',this)">📝 これから登録予定</button>
+            <button class="diag-choice" onclick="answer(3,'no',this)">❌ 登録していない</button>
+            <button class="diag-choice" onclick="answer(3,'unknown',this)">🤔 わからない</button>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="diag-q" id="q4">
+          <div class="diag-q-num">Q4</div>
+          <div class="diag-q-text">従業員の賃金引上げを計画・実施していますか？</div>
+          <div class="diag-choices">
+            <button class="diag-choice" onclick="answer(4,'yes',this)">📈 はい、引き上げ予定 or 実施済み</button>
+            <button class="diag-choice" onclick="answer(4,'deficit',this)">📉 引き上げ予定だが現在赤字</button>
+            <button class="diag-choice" onclick="answer(4,'no',this)">➖ 予定なし</button>
+            <button class="diag-choice" onclick="answer(4,'sole',this)">👤 従業員なし（一人事業）</button>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="diag-q" id="q5">
+          <div class="diag-q-num">Q5</div>
+          <div class="diag-q-text">SUIに依頼したいサービスを選んでください（複数選択可）</div>
+          <div class="diag-choices multi">
+            <button class="diag-choice multi-choice" data-val="sns" onclick="toggleMulti(this)">📱 SNS運用代行</button>
+            <button class="diag-choice multi-choice" data-val="video" onclick="toggleMulti(this)">🎬 動画制作・編集</button>
+            <button class="diag-choice multi-choice" data-val="web" onclick="toggleMulti(this)">🌐 ホームページ制作</button>
+            <button class="diag-choice multi-choice" data-val="ad" onclick="toggleMulti(this)">💰 SNS・Web広告運用</button>
+            <button class="diag-choice multi-choice" data-val="app" onclick="toggleMulti(this)">📲 アプリ開発</button>
+          </div>
+          <button class="diag-next-btn" id="multi-next" onclick="finishMulti()" style="display:none">診断結果を見る →</button>
+        </div>
+
+      </div>
+
+      <!-- 結果エリア -->
+      <div class="diag-result" id="diag-result" style="display:none">
+        <div class="result-header">
+          <div class="result-icon">🎉</div>
+          <h2>診断完了！</h2>
+          <p id="result-subtitle">あなたの補助金シミュレーション結果</p>
+        </div>
+        <div class="result-amount-wrap">
+          <div class="result-amount-label">申請可能な補助上限額（目安）</div>
+          <div class="result-amount" id="result-amount">―</div>
+          <div class="result-rate" id="result-rate"></div>
+        </div>
+        <div class="result-breakdown" id="result-breakdown"></div>
+        <div class="result-services" id="result-services"></div>
+        <div class="result-note">
+          ⚠️ この診断は目安です。実際の採択額は申請内容・審査によって異なります。詳しくはSUIへ無料相談ください。
+        </div>
+        <div class="result-actions">
+          <button class="result-retry" onclick="resetDiag()">🔄 もう一度診断する</button>
+          <a href="#" class="result-cta">📩 SUIに無料相談する</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>まずは無料相談から始めませんか？</h2>
+    <p>SNS運用・動画制作・ホームページ制作を補助金と組み合わせてご提案します。<br>株式会社粋（SUI）がワンストップでサポートします。</p>
+    <a href="#" class="cta-btn">📩 無料でSUIに相談する</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>出典：中小企業庁 小規模事業者持続化補助金 公募要領（2026年1月28日公開）をもとに作成</p>
+  <p style="margin-top:4px">※ 本資料は情報提供を目的としています。申請の際は必ず公式公募要領をご確認ください。</p>
+</footer>
+
+<script>
+  // ── 診断ロジック ──
+  const answers = {};
+  const totalQ = 5;
+
+  function updateProgress(step) {
+    const pct = Math.round((step - 1) / totalQ * 100);
+    document.getElementById('diag-bar').style.width = pct + '%';
+    document.getElementById('diag-pct').textContent = pct + '%';
+    document.getElementById('diag-step-label').textContent = `質問 ${step} / ${totalQ}`;
+  }
+
+  function answer(q, val, btn) {
+    answers['q' + q] = val;
+    btn.closest('.diag-choices').querySelectorAll('.diag-choice').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    setTimeout(() => {
+      if (q < totalQ) {
+        document.getElementById('q' + q).classList.remove('active');
+        document.getElementById('q' + (q + 1)).classList.add('active');
+        updateProgress(q + 1);
+      } else {
+        showResult();
+      }
+    }, 300);
+  }
+
+  function toggleMulti(btn) {
+    btn.classList.toggle('selected');
+    const anySelected = document.querySelectorAll('.multi-choice.selected').length > 0;
+    document.getElementById('multi-next').style.display = anySelected ? 'block' : 'none';
+  }
+
+  function finishMulti() {
+    answers['q5'] = Array.from(document.querySelectorAll('.multi-choice.selected')).map(b => b.dataset.val);
+    showResult();
+  }
+
+  function showResult() {
+    document.getElementById('diag-bar').style.width = '100%';
+    document.getElementById('diag-pct').textContent = '100%';
+    document.getElementById('diag-step-label').textContent = '診断完了！';
+    document.getElementById('diag-card').style.display = 'none';
+    document.getElementById('diag-result').style.display = 'block';
+
+    // 対象判定
+    const industry = answers.q1;
+    const employees = answers.q2;
+    const invoice = answers.q3;
+    const wage = answers.q4;
+    const services = answers.q5 || [];
+
+    // 対象外チェック
+    let eligible = true;
+    let ineligibleReason = '';
+    if (industry === 'service' && employees === '6-20') { eligible = false; ineligibleReason = '商業・サービス業の対象は従業員5人以下です'; }
+    if (industry === 'service' && employees === '21+') { eligible = false; ineligibleReason = '商業・サービス業の対象は従業員5人以下です'; }
+    if (employees === '21+' && industry !== 'service') { eligible = false; ineligibleReason = '従業員21人以上は小規模事業者の対象外となる場合があります'; }
+
+    // 補助上限計算
+    let base = 500000; // 50万
+    let invoiceBonus = 0;
+    let wageBonus = 0;
+    let rate = '2/3';
+
+    if (invoice === 'yes' || invoice === 'plan') invoiceBonus = 500000;
+    if (wage === 'yes') wageBonus = 1500000;
+    if (wage === 'deficit') { wageBonus = 1500000; rate = '3/4（赤字のため）'; }
+
+    const total = base + invoiceBonus + wageBonus;
+
+    // 結果表示
+    if (!eligible) {
+      document.getElementById('result-amount').textContent = '対象外の可能性';
+      document.getElementById('result-amount').style.fontSize = '28px';
+      document.getElementById('result-rate').textContent = ineligibleReason;
+      document.getElementById('result-subtitle').textContent = '⚠️ 要件を確認してください';
+    } else {
+      const fmt = n => n >= 10000 ? (n / 10000).toFixed(0) + '万円' : n.toLocaleString() + '円';
+      document.getElementById('result-amount').textContent = fmt(total);
+      document.getElementById('result-amount').style.fontSize = total >= 2000000 ? '44px' : '52px';
+      document.getElementById('result-rate').textContent = `補助率 ${rate} ｜ 最大 ${fmt(total)} まで申請可能`;
+    }
+
+    // 内訳
+    const bd = document.getElementById('result-breakdown');
+    bd.innerHTML = `
+      <div class="rb-item ok"><div class="rb-label">基本補助額</div><div class="rb-val">50万円</div></div>
+      <div class="rb-item ${invoiceBonus > 0 ? 'ok' : 'warn'}">
+        <div class="rb-label">インボイス特例</div>
+        <div class="rb-val">${invoiceBonus > 0 ? '+50万円' : '対象外'}</div>
+      </div>
+      <div class="rb-item ${wageBonus > 0 ? 'ok' : 'warn'}">
+        <div class="rb-label">賃金引上げ特例</div>
+        <div class="rb-val">${wageBonus > 0 ? '+150万円' : '対象外'}</div>
+      </div>
+    `;
+
+    // SUIサービス×補助金
+    const serviceMap = {
+      sns: 'SNS運用代行 → ウェブサイト関連費として補助対象になる可能性があります',
+      video: '動画制作・編集 → ウェブサイト関連費・広報費として補助対象になる可能性があります',
+      web: 'ホームページ制作 → ウェブサイト関連費として補助対象になる可能性があります',
+      ad: 'SNS・Web広告運用 → インターネット広告費として補助対象になる可能性があります',
+      app: 'アプリ開発 → 業務効率化や販路開拓手段として計画に盛り込めます',
+    };
+    if (services.length > 0) {
+      const srv = document.getElementById('result-services');
+      srv.innerHTML = `<h4>📋 選んだSUIサービスと補助金の対応</h4><ul>${services.map(s => `<li>${serviceMap[s]}</li>`).join('')}</ul>`;
+    }
+  }
+
+  function resetDiag() {
+    Object.keys(answers).forEach(k => delete answers[k]);
+    document.querySelectorAll('.diag-q').forEach(q => q.classList.remove('active'));
+    document.querySelectorAll('.diag-choice').forEach(b => b.classList.remove('selected'));
+    document.getElementById('multi-next').style.display = 'none';
+    document.getElementById('q1').classList.add('active');
+    document.getElementById('diag-card').style.display = 'block';
+    document.getElementById('diag-result').style.display = 'none';
+    document.getElementById('diag-bar').style.width = '0%';
+    document.getElementById('diag-pct').textContent = '0%';
+    document.getElementById('diag-step-label').textContent = '質問 1 / 5';
+  }
+
+  // Tab switching
+  function switchTab(name) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.section').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
